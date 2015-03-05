@@ -1,0 +1,42 @@
+CREATE DATABASE inspection_mapper CHARACTER SET utf8 COLLATE utf8_bin;
+
+USE inspection_mapper;
+
+CREATE TABLE IF NOT EXISTS BusinessAHSID(
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  ahs_id VARCHAR(100) NOT NULL,
+  letter VARCHAR (3) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE InnoDB;
+
+CREATE TABLE IF NOT EXISTS Business (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  ahs_id VARCHAR(100) NOT NULL,
+  name VARCHAR(256) NOT NULL,
+  type VARCHAR(256) NOT NULL,
+  address VARCHAR(256) NOT NULL,
+  lat VARCHAR(50) NULL,
+  lng VARCHAR(50) NULL,
+  phone VARCHAR(12),
+  permit_holder VARCHAR(25),
+  PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS Inspection(
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  ahs_id VARCHAR(100) NOT NULL,
+  type VARCHAR(256) NOT NULL,
+  action VARCHAR (256) NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE InnoDB;
+
+CREATE TABLE IF NOT EXISTS Violation(
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  ahs_id VARCHAR(100) NOT NULL,
+  violation TEXT,
+  rationale TEXT,
+  comments TEXT,
+  critical BOOL,
+  PRIMARY KEY (id)
+) ENGINE InnoDB;
