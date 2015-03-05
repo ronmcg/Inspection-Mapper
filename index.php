@@ -4,7 +4,7 @@ include(dirname(__FILE__) . '/inc/header.inc.php');
 
 <body>
 <div id="map-canvas"></div>
-<a href="https:github.com/ronmcg" target="_blank">
+<a href="https:github.com/ronmcg/Inspection-Mapper" target="_blank">
         <div id="source">
                 Source
         </div>
